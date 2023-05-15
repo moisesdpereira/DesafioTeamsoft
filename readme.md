@@ -45,7 +45,7 @@ A API possui as operações básicas de Cadastro, Leitura, Alteração e Remoç�
 * Latitude (Somente leitura, bonus points)
 * Longitude (Somente leitura, bonus points)
 
-## Documentação
+## Documentação para uso da API com Swagger
 Este projeto oferece documentação Swagger para cada linguagem utilizada. A documentação está localizada na pasta documentation de cada linguagem.
 
 - Para a aplicação em Laravel, a documentação Swagger pode ser encontrada em laravel/documentation.
