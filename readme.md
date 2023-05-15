@@ -1,8 +1,8 @@
 # Desafio Teamsoft - Moisés
 
 ## Sobre o Projeto
-O projeto é uma aplicação backend desenvolvida com Laravel e 
-Node.js com Express, sendo a principal baseada em Laravel/Docker. 
+O projeto é uma aplicação backend desenvolvida com Laravel ou 
+Node.js com Express, sendo o principal projeto em Laravel. 
 Ela proporciona uma estrutura de APIs rest.
 
 ---
@@ -14,23 +14,19 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 ```
 
 ---
-Para executar o projeto em **Laravel**
+a) Para executar o projeto em **Laravel**
 - Entre na pasta laravel
 - Execute `composer install`;
-- Execute `apt install npm`;
-- Execute `npm install`;
-- Execute `npm run build`;
-- Criar arquivo `.env` e inserir dados de banco de dados(Base encontra-se em database/dumps);
+- Criar arquivo `.env` e inserir dados de banco de dados;
 - Execute `php artisan key:generate`;
 - E por fim, para subir o serviço execute `php artisan serve`.
 - Depois acessar a API **http://localhost:8000/api/END_POINT**
----
-Para executar o projeto em **NODE JS com Express**
+
+b) Para executar o projeto em **NODE JS com Express**
 - Entre na pasta node
 - Execute `npm install`
-
 - Depois acessar a API **http://localhost:5000/api/END_POINT**
-
+---
 A API possui as operações básicas de Cadastro, Leitura, Alteração e Remoção de Clientes com endereço, com entidades separadas, um cliente pode ter mais de um endereço
 ## Cliente
 * CNPJ (Obrigatório)
