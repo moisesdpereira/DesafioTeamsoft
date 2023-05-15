@@ -15,30 +15,20 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 
 ---
 Para executar o projeto em **Laravel**
-```bash
-composer install
-cp .env.example .env
-vi .env
-php artisan key:generate
-php artisan serve
-```
-- Dentro do arquivo .env alterar as variaveis do banco
-```bash
-  DB_CONNECTION=mysql
-  DB_HOST=mysql
-  DB_PORT=3306
-  DB_DATABASE=desafio_teamsoft_laravel
-  DB_USERNAME=sail
-  DB_PASSWORD=password
- ```
+- Entre na pasta laravel
+- Execute `composer install`;
+- Execute `apt install npm`;
+- Execute `npm install`;
+- Execute `npm run build`;
+- Criar arquivo `.env` e inserir dados de banco de dados(Base encontra-se em database/dumps);
+- Execute `php artisan key:generate`;
+- E por fim, para subir o serviço execute `php artisan serve`.
 - Depois acessar a API **http://localhost:8000/api/END_POINT**
 ---
 Para executar o projeto em **NODE JS com Express**
-```bash
-cd node
+- Entre na pasta node
+- Execute `npm install`
 
-npm install
-```
 - Depois acessar a API **http://localhost:5000/api/END_POINT**
 
 A API possui as operações básicas de Cadastro, Leitura, Alteração e Remoção de Clientes com endereço, com entidades separadas, um cliente pode ter mais de um endereço
