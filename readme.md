@@ -4,6 +4,9 @@
 O projeto é uma aplicação backend desenvolvida com Laravel e Node.js com Express, sendo a principal baseada em Laravel. Ela proporciona uma estrutura de APIs rest.
 
 ## Proposta
+Laravel
+copiar o env.example e editar os dados da base conforme sua base
+
 NODE
 npm install
 
