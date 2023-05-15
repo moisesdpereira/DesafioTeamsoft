@@ -1,0 +1,823 @@
+openapi: 3.0.1
+info:
+  title: API - Desafio | Laravel
+  description: API de CRUD de Clientes e seus endereços com relação (1:n) em Laravel
+  contact:
+    name: Moisés Dantas
+    email: moisesdpereira@gmail.com
+  version: 1.0.0
+servers:
+- url: http://127.0.0.1:80
+  description: API - Desafio
+tags:
+- name: Clientes
+- name: Endereços
+paths:
+  /api/clients:
+    get:
+      tags:
+      - Clientes
+      summary: Recupera os dados de todos os clientes
+      operationId: apiClientsGET
+      responses:
+        "200":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                x-content-type: application/json
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Clientes
+    post:
+      tags:
+      - Clientes
+      summary: Insere os dados de um todos os cliente
+      operationId: apiClientsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_clients_body'
+        required: true
+      responses:
+        "201":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_201'
+                x-content-type: application/json
+        "422":
+          description: Falta algum parametro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_422'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Clientes
+  /api/clients/{cnpj}:
+    get:
+      tags:
+      - Clientes
+      summary: Recupera todos os dados de um clientes
+      operationId: apiClientsCnpjGET
+      parameters:
+      - name: cnpj
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+                x-content-type: application/json
+        "404":
+          description: Não encontrou nenhum registro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Clientes
+    delete:
+      tags:
+      - Clientes
+      summary: Deleta os dados de um cliente
+      operationId: apiClientsCnpjDELETE
+      parameters:
+      - name: cnpj
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_204'
+        "404":
+          description: Registro não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Clientes
+    patch:
+      tags:
+      - Clientes
+      summary: Insere os dados de um todos os cliente
+      operationId: apiClientsCnpjPATCH
+      parameters:
+      - name: cnpj
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/clients_cnpj_body'
+        required: true
+      responses:
+        "201":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_201_1'
+        "404":
+          description: Registro não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "422":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Clientes
+  /api/addresses:
+    get:
+      tags:
+      - Endereços
+      summary: Recupera os dados de todos os endereços
+      operationId: apiAddressesGET
+      responses:
+        "200":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200_1'
+                x-content-type: application/json
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Endereos
+    post:
+      tags:
+      - Endereços
+      summary: Insere os dados de um endereço
+      operationId: apiAddressesPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/api_addresses_body'
+        required: true
+      responses:
+        "201":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_201'
+                x-content-type: application/json
+        "422":
+          description: Falta algum parametro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_422'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Endereos
+  /api/addresses/{id}:
+    get:
+      tags:
+      - Endereços
+      summary: Recupera todos os endereços de um clientes
+      operationId: apiAddressesIdGET
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/apiclients_enderecos'
+                x-content-type: application/json
+        "404":
+          description: Não encontrou nenhum registro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Endereos
+    delete:
+      tags:
+      - Endereços
+      summary: Deleta um endereço
+      operationId: apiAddressesIdDELETE
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_204'
+        "404":
+          description: Registro não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Endereos
+    patch:
+      tags:
+      - Endereços
+      summary: Atualiza um endereço
+      operationId: apiAddressesIdPATCH
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addresses_id_body'
+        required: true
+      responses:
+        "201":
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_201_2'
+        "404":
+          description: Registro não encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "422":
+          description: Falta algum parametro
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_404'
+        "500":
+          description: Falha na requisição
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_500'
+      x-swagger-router-controller: Endereos
+components:
+  schemas:
+    apiclients_enderecos:
+      type: object
+      properties:
+        id:
+          type: integer
+        client:
+          type: integer
+        logradouro:
+          type: string
+        numero:
+          type: string
+        complemento:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        cep:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+      example:
+        cidade: cidade
+        estado: estado
+        complemento: complemento
+        numero: numero
+        logradouro: logradouro
+        bairro: bairro
+        latitude: latitude
+        client: 1
+        id: 6
+        cep: cep
+        longitude: longitude
+    inline_response_200:
+      type: object
+      properties:
+        id:
+          type: integer
+        cnpj:
+          type: string
+        razao_social:
+          type: string
+        nome_contato:
+          type: string
+        telefone:
+          type: string
+        enderecos:
+          type: array
+          items:
+            $ref: '#/components/schemas/apiclients_enderecos'
+      example:
+        telefone: telefone
+        enderecos:
+        - cidade: cidade
+          estado: estado
+          complemento: complemento
+          numero: numero
+          logradouro: logradouro
+          bairro: bairro
+          latitude: latitude
+          client: 1
+          id: 6
+          cep: cep
+          longitude: longitude
+        - cidade: cidade
+          estado: estado
+          complemento: complemento
+          numero: numero
+          logradouro: logradouro
+          bairro: bairro
+          latitude: latitude
+          client: 1
+          id: 6
+          cep: cep
+          longitude: longitude
+        razao_social: razao_social
+        id: 0
+        cnpj: cnpj
+        nome_contato: nome_contato
+    inline_response_500:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensagem de retorno
+        error:
+          type: object
+    apiclients_enderecos_1:
+      required:
+      - bairro
+      - cep
+      - cidade
+      - estado
+      - logradouro
+      - numero
+      type: object
+      properties:
+        logradouro:
+          type: string
+        numero:
+          type: string
+        complemento:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        cep:
+          type: string
+    api_clients_body:
+      required:
+      - cnpj
+      - enderecos
+      - nome_contato
+      - razao_social
+      - telefone
+      type: object
+      properties:
+        cnpj:
+          type: string
+        razao_social:
+          type: string
+        nome_contato:
+          type: string
+        telefone:
+          type: string
+        enderecos:
+          type: array
+          items:
+            $ref: '#/components/schemas/apiclients_enderecos_1'
+    apiclients_enderecos_2:
+      type: object
+      properties:
+        logradouro:
+          type: string
+        numero:
+          type: string
+        complemento:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        cep:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+      example:
+        cidade: cidade
+        estado: estado
+        complemento: complemento
+        numero: numero
+        logradouro: logradouro
+        bairro: bairro
+        latitude: latitude
+        cep: cep
+        longitude: longitude
+    apiclients_data:
+      type: object
+      properties:
+        cnpj:
+          type: string
+        razao_social:
+          type: string
+        nome_contato:
+          type: string
+        telefone:
+          type: string
+        enderecos:
+          type: array
+          items:
+            $ref: '#/components/schemas/apiclients_enderecos_2'
+      example:
+        telefone: telefone
+        enderecos:
+        - cidade: cidade
+          estado: estado
+          complemento: complemento
+          numero: numero
+          logradouro: logradouro
+          bairro: bairro
+          latitude: latitude
+          cep: cep
+          longitude: longitude
+        - cidade: cidade
+          estado: estado
+          complemento: complemento
+          numero: numero
+          logradouro: logradouro
+          bairro: bairro
+          latitude: latitude
+          cep: cep
+          longitude: longitude
+        razao_social: razao_social
+        cnpj: cnpj
+        nome_contato: nome_contato
+    inline_response_201:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/apiclients_data'
+      example:
+        data:
+        - telefone: telefone
+          enderecos:
+          - cidade: cidade
+            estado: estado
+            complemento: complemento
+            numero: numero
+            logradouro: logradouro
+            bairro: bairro
+            latitude: latitude
+            cep: cep
+            longitude: longitude
+          - cidade: cidade
+            estado: estado
+            complemento: complemento
+            numero: numero
+            logradouro: logradouro
+            bairro: bairro
+            latitude: latitude
+            cep: cep
+            longitude: longitude
+          razao_social: razao_social
+          cnpj: cnpj
+          nome_contato: nome_contato
+        - telefone: telefone
+          enderecos:
+          - cidade: cidade
+            estado: estado
+            complemento: complemento
+            numero: numero
+            logradouro: logradouro
+            bairro: bairro
+            latitude: latitude
+            cep: cep
+            longitude: longitude
+          - cidade: cidade
+            estado: estado
+            complemento: complemento
+            numero: numero
+            logradouro: logradouro
+            bairro: bairro
+            latitude: latitude
+            cep: cep
+            longitude: longitude
+          razao_social: razao_social
+          cnpj: cnpj
+          nome_contato: nome_contato
+        message: message
+    inline_response_422:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensagem de retorno
+        errors:
+          type: object
+    inline_response_404:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Mensagem de retorno
+    inline_response_204:
+      type: object
+      properties:
+        message:
+          type: string
+      example:
+        message: message
+    clients_cnpj_body:
+      required:
+      - nome_contato
+      - razao_social
+      - telefone
+      type: object
+      properties:
+        razao_social:
+          type: string
+        nome_contato:
+          type: string
+        telefone:
+          type: string
+    inline_response_201_1:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            id:
+              type: string
+            cnpj:
+              type: string
+            razao_social:
+              type: string
+            nome_contato:
+              type: string
+            telefone:
+              type: string
+          example:
+            telefone: telefone
+            razao_social: razao_social
+            id: id
+            cnpj: cnpj
+            nome_contato: nome_contato
+      example:
+        data:
+          telefone: telefone
+          razao_social: razao_social
+          id: id
+          cnpj: cnpj
+          nome_contato: nome_contato
+        message: message
+    inline_response_200_1:
+      type: object
+      properties:
+        id:
+          type: integer
+        client_id:
+          type: integer
+        logradouro:
+          type: string
+        numero:
+          type: string
+        complemento:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        cep:
+          type: string
+        latitude:
+          type: string
+        longitude:
+          type: string
+      example:
+        cidade: cidade
+        estado: estado
+        complemento: complemento
+        numero: numero
+        logradouro: logradouro
+        bairro: bairro
+        latitude: latitude
+        id: 0
+        client_id: 6
+        cep: cep
+        longitude: longitude
+    api_addresses_body:
+      required:
+      - cnpj
+      - enderecos
+      - nome_contato
+      - razao_social
+      - telefone
+      type: object
+      properties:
+        cnpj:
+          type: string
+        enderecos:
+          type: array
+          items:
+            $ref: '#/components/schemas/apiclients_enderecos_1'
+    addresses_id_body:
+      required:
+      - bairro
+      - cep
+      - cidade
+      - estado
+      - logradouro
+      - numero
+      type: object
+      properties:
+        logradouro:
+          type: string
+        numero:
+          type: string
+        complemento:
+          type: string
+        bairro:
+          type: string
+        cidade:
+          type: string
+        estado:
+          type: string
+        cep:
+          type: string
+    inline_response_201_2:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            client_id:
+              type: integer
+            logradouro:
+              type: string
+            numero:
+              type: string
+            complemento:
+              type: string
+            bairro:
+              type: string
+            cidade:
+              type: string
+            estado:
+              type: string
+            cep:
+              type: string
+            latitude:
+              type: string
+            longitude:
+              type: string
+          example:
+            cidade: cidade
+            estado: estado
+            complemento: complemento
+            numero: numero
+            logradouro: logradouro
+            bairro: bairro
+            latitude: latitude
+            id: 0
+            client_id: 6
+            cep: cep
+            longitude: longitude
+      example:
+        data:
+          cidade: cidade
+          estado: estado
+          complemento: complemento
+          numero: numero
+          logradouro: logradouro
+          bairro: bairro
+          latitude: latitude
+          id: 0
+          client_id: 6
+          cep: cep
+          longitude: longitude
+        message: message
