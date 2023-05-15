@@ -8,7 +8,7 @@ const app = express()
 app.use(express.json())
 
 // Routes
-app.use('/clients', ClientRoutes)
-app.use('/addresses', AddressRoutes)
+app.use('/api/clients', ClientRoutes)
+app.use('/api/addresses', AddressRoutes)
 
 app.listen(5000)
