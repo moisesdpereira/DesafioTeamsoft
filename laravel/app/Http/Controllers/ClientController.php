@@ -18,7 +18,7 @@ class ClientController extends Controller
                 ->with(['enderecos'])
                 ->get();
             if($clients->isEmpty()){
-               return $this->returnMenssageErro404();
+               return $this->returnMenssageErro404('Não existe registros no banco');
             }
 
             return response()->json($clients);
@@ -92,7 +92,7 @@ class ClientController extends Controller
                 ->get();
 
             if($clients->isEmpty()){
-                return $this->returnMenssageErro404();
+                return $this->returnMenssageErro404('Nenhum registro encontrato para este CNPJ');
             }
 
             return response()->json($clients);
@@ -131,7 +131,7 @@ class ClientController extends Controller
                 return $this->returnMenssageErro500($e);
             }
         }else{
-            return $this->returnMenssageErro404();
+            return $this->returnMenssageErro404('Nenhum registro encontrato para este CNPJ');
         }
 
 
@@ -160,7 +160,7 @@ class ClientController extends Controller
                 return $this->returnMenssageErro500($e);
             }
         }else{
-            return $this->returnMenssageErro404();
+            return $this->returnMenssageErro404('Nenhum registro encontrato para este CNPJ');
         }
 
     }
@@ -172,8 +172,8 @@ class ClientController extends Controller
                 'error' => $e], 500);
 
     }
-    private function returnMenssageErro404(){
-        return response()->json(['message'=>'Nenhum cliente cadastrado na base'], 404);
+    private function returnMenssageErro404($message){
+        return response()->json([$message], 404);
     }
     private function returnMenssageErro201($client){
         return response()->json([

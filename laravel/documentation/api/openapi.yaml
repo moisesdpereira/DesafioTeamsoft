@@ -41,7 +41,7 @@ paths:
     post:
       tags:
       - Clientes
-      summary: Insere os dados de um todos os cliente
+      summary: Insere os dados de um cliente
       operationId: apiClientsPOST
       requestBody:
         content:
@@ -145,7 +145,7 @@ paths:
     patch:
       tags:
       - Clientes
-      summary: Insere os dados de um todos os cliente
+      summary: Atualiza os dados de um cliente
       operationId: apiClientsCnpjPATCH
       parameters:
       - name: cnpj
@@ -284,7 +284,7 @@ paths:
     delete:
       tags:
       - Endereços
-      summary: Deleta um endereço
+      summary: Deleta os dados um endereço
       operationId: apiAddressesIdDELETE
       parameters:
       - name: id
@@ -317,7 +317,7 @@ paths:
     patch:
       tags:
       - Endereços
-      summary: Atualiza um endereço
+      summary: Atualiza os dados um endereço
       operationId: apiAddressesIdPATCH
       parameters:
       - name: id
