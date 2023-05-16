@@ -46,6 +46,7 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 
 4. Para executar o projeto em *Laravel Sail e docker*
 - Entre na pasta laravel `cd DesafioTeamsoft/laravel`
+- Criar arquivo `.env` e inserir dados de banco de dados
 - Execute `./vendor/bin/sail up -d`
 - Execute `docker-compose exec laravel.test bash`
 - Execute `php artisan key:generate`;
