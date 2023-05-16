@@ -49,6 +49,7 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 - Criar arquivo .env `cp .env.example .env`
 - Execute `docker-compose up -d`
 - Execute `docker-compose exec laravel.test bash`
+- Execute `composer install`;
 - Execute `php artisan key:generate`;
 - Execute `php artisan migrate`
 ---
