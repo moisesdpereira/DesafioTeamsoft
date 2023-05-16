@@ -33,8 +33,8 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 - Entre na pasta laravel
 - Execute `composer install`;
 - Criar arquivo `.env` e inserir dados de banco de dados;
-- Execute `php artisan migrate`
 - Execute `php artisan key:generate`;
+- Execute `php artisan migrate`
 - E por fim, para subir o serviço execute `php artisan serve`.
 - Depois consumir a API **http://localhost:8000/api/END_POINT**
 - Para executar os teste execute `php artisan test`
