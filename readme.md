@@ -30,10 +30,10 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 ```
 2. Para executar o projeto em **Laravel e docker**
 - Entre na pasta laravel
+- Criar arquivo `.env` e inserir dados de banco de dados;
 - Execute ` docker-compose up -d`
 - Execute `docker-compose exec laravel.test bash`
 - Execute `composer install`;
-- Criar arquivo `.env` e inserir dados de banco de dados;
 - Execute `php artisan key:generate`;
 - Execute `php artisan migrate`
 - 
