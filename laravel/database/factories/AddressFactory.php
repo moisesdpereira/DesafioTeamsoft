@@ -16,8 +16,16 @@ class AddressFactory extends Factory
      */
     public function definition(): array
     {
+        $alphabet = range('A', 'Z');
+        $randomLetters = $this->faker->randomElements($alphabet, 2);
         return [
-            //
+            'logradouro'    => $this->faker->streetAddress,
+            'numero'        => $this->faker->buildingNumber,
+            'complemento'   => $this->faker->streetAddress,
+            'bairro'        => $this->faker->firstName,
+            'cidade'        => $this->faker->city,
+            'estado'        => implode('', $randomLetters),
+            'cep'           => $this->faker->postcode,
         ];
     }
 }

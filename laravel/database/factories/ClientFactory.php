@@ -17,7 +17,10 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'cnpj'          => rand(10000000000100, 10999999000199),
+            'razao_social'  => $this->faker->firstName.' LTDA',
+            'nome_contato'  => $this->faker->name,
+            'telefone'      => $this->faker->phoneNumber,
         ];
     }
 }
