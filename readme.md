@@ -28,8 +28,16 @@ Ela proporciona uma estrutura de APIs rest.
 ```bash
 git clone https://github.com/moisesdpereira/DesafioTeamsoft
 ```
-
-2. Para executar o projeto em **Laravel** 
+2. Para executar o projeto em **Laravel e docker**
+- Entre na pasta laravel
+- Execute `docker run --rm --interactive --tty -v $(pwd):/app composer install`
+- Execute ` docker-compose up -d`
+- Execute `docker-compose exec laravel.test bash`
+- Criar arquivo `.env` e inserir dados de banco de dados;
+- Execute `php artisan key:generate`;
+- Execute `php artisan migrate`
+- 
+3. Para executar o projeto em **Laravel** 
 - Entre na pasta laravel
 - Execute `composer install`;
 - Criar arquivo `.env` e inserir dados de banco de dados;
@@ -39,11 +47,12 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 - Depois consumir a API **http://localhost:8000/api/END_POINT**
 - Para executar os teste execute `php artisan test`
 
-3. Para executar o projeto em **NODE JS com Express**
+4. Para executar o projeto em **NODE JS com Express**
 - Entre na pasta node
 - Execute `npm install`
 - Execute `npm start`
 - Depois consumir a API **http://localhost:5000/api/END_POINT**
+- 
 ---
 ## Documentação para uso da API com Swagger
 > Este projeto oferece documentação Swagger para cada linguagem utilizada. A documentação está localizada na pasta documentation de cada linguagem.
