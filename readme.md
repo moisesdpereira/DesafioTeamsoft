@@ -44,6 +44,13 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 - Execute `npm start`
 - Depois consumir a API **http://localhost:5000/api/END_POINT**
 
+4. Para executar o projeto em *Laravel Sail e docker*
+- Entre na pasta laravel `cd DesafioTeamsoft/laravel`
+- Criar arquivo .env `cp .env.example .env`
+- Execute `docker-compose up -d`
+- Execute `docker-compose exec laravel.test bash`
+- Execute `php artisan key:generate`;
+- Execute `php artisan migrate`
 ---
 ## Documentação para uso da API com Swagger
 > Este projeto oferece documentação Swagger para cada linguagem utilizada. A documentação está localizada na pasta documentation de cada linguagem.
