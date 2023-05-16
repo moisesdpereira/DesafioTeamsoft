@@ -28,12 +28,12 @@ Ela proporciona uma estrutura de APIs rest.
 ```bash
 git clone https://github.com/moisesdpereira/DesafioTeamsoft
 ```
-2. Para executar o projeto em **Laravel e docker**
-- Entre na pasta laravel
-- Criar arquivo `.env` e inserir dados de banco de dados;
-- Execute ` docker-compose up -d`
+2. Para executar o projeto em *Laravel e docker*
+- Entre na pasta laravel `cd DesafioTeamsoft/laravel`
+- Criar arquivo .env `cp .env.example .env`
+- Execute `docker run --rm --interactive --tty -v $(pwd):/app composer install`
+- Execute `docker-compose up -d`
 - Execute `docker-compose exec laravel.test bash`
-- Execute `composer install`;
 - Execute `php artisan key:generate`;
 - Execute `php artisan migrate`
 - 
