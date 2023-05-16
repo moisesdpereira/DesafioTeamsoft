@@ -155,7 +155,7 @@ class ClientController extends Controller
         if($client){
             try{
                 $client->delete();
-                return response()->json(['message'=>'Cliente excluido com sucesso'], 201);
+                return response()->json(['message'=>'Cliente excluido com sucesso'], 204);
             }catch (\Exception $e){
                 return $this->returnMenssageErro500($e);
             }

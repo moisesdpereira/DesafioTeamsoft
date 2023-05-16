@@ -12,6 +12,10 @@ class Client extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'cnpj', 'razao_social', 'nome_contato', 'telefone'
+    ];
+
     protected $hidden = [
         'created_at',
         'updated_at',

@@ -126,7 +126,7 @@ class ClientsControllerTest extends TestCase
 
         $response = $this->deleteJson('/api/clients/' . $client->cnpj);
 
-        $response->assertStatus(201);
+        $response->assertStatus(204);
 
         $response->assertJson([
             'message' => 'Cliente excluido com sucesso',
@@ -134,4 +134,5 @@ class ClientsControllerTest extends TestCase
 
         $this->assertSoftDeleted('clients', ['id' => $client->id]);
     }
+
 }

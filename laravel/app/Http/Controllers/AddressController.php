@@ -138,7 +138,7 @@ class AddressController extends Controller
         if($address){
             try{
                 $address->delete();
-                return response()->json(['message'=>'Endereço excluido com sucesso'], 201);
+                return response()->json(['message'=>'Endereço excluido com sucesso'], 204);
             }catch (\Exception $e){
                 return $this->returnMenssageErro500($e);
             }

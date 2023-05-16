@@ -12,6 +12,7 @@ class Address extends Model
     use HasFactory;
     use SoftDeletes;
 
+
     protected $hidden = [
         'created_at',
         'updated_at',
