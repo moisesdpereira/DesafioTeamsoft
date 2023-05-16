@@ -37,6 +37,7 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 - Execute `php artisan key:generate`;
 - E por fim, para subir o serviço execute `php artisan serve`.
 - Depois consumir a API **http://localhost:8000/api/END_POINT**
+- Para executar os teste execute `php artisan test`
 
 3. Para executar o projeto em **NODE JS com Express**
 - Entre na pasta node
