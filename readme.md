@@ -41,6 +41,7 @@ git clone https://github.com/moisesdpereira/DesafioTeamsoft
 3. Para executar o projeto em **NODE JS com Express**
 - Entre na pasta node
 - Execute `npm install`
+- Execute `npm start`
 - Depois consumir a API **http://localhost:5000/api/END_POINT**
 ---
 ## Documentação para uso da API com Swagger
